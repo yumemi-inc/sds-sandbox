@@ -1,7 +1,10 @@
 {
   "mcpServers": {
-    "figma": {
-      "url": "http://127.0.0.1:3845/sse"
+    "figma-remote-mcp": {
+      "url": "https://mcp.figma.com/mcp"
+    },
+    "figma-local-mcp": {
+      "url": "http://127.0.0.1:3845/mcp"
     }
   }
 }
