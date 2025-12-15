@@ -1,4 +1,18 @@
 {
+  "litmus": {
+    "projectId": "d5992e84-26c8-4766-abbc-e5feb10d49bc",
+    "storybook": {
+      "staticBuildPath": "https://685cfc17bae0312f00881fa4-utbvktkvgs.chromatic.com/"
+    },
+    "variants": {
+      "viewport": {
+        "default": {
+          "width": 1280,
+          "height": 720
+        }
+      }
+    }
+  },
   "codeConnect": {
     "include": ["src/ui/**/*", "src/figma/**/*"],
     "exclude": ["src/figma/icons/*"],

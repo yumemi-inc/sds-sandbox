@@ -1,0 +1,22 @@
+name: Litmus Storybook
+on: [push]
+jobs:
+  litmus-storybook:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install dependencies
+        run: npm ci
+      - name: Build Storybook
+        run: npm run storybook:build
+      - name: Run Litmus Storybook Tests
+        env:
+          LITMUS_FIGMA_ACCESS_TOKEN: ${{ secrets.PROD_LITMUS_FIGMA_ACCESS_TOKEN }}
+        run: |
+          npx litmus-cli upload \
+            --config=./path/to/your/storybook/figma.config.json \
+            --access-token=${LITMUS_FIGMA_ACCESS_TOKEN}
