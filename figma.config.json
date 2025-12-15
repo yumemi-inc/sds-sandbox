@@ -1,6 +1,9 @@
 {
   "litmus": {
     "projectId": "d5992e84-26c8-4766-abbc-e5feb10d49bc",
+    "storybook": {
+      "staticBuildPath": "dist/storybook"
+    },
     "variants": {
       "viewport": {
         "default": {
