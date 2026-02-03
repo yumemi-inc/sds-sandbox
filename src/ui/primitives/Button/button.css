@@ -1,5 +1,5 @@
 .button {
-  --border-radius: var(--sds-size-radius-200);
+  --border-radius: 9999px;
   align-items: center;
   box-shadow: inset 0 0 0 var(--sds-size-stroke-border)
     var(--button-border-color);
@@ -68,23 +68,22 @@
   }
 }
 .button-variant-neutral {
-  --button-background-color: var(--sds-color-background-default-secondary);
-  --button-border-color: var(--sds-color-border-default-default);
+  --button-background-color: var(--sds-color-background-neutral-tertiary);
+  --button-border-color: var(--sds-color-border-neutral-secondary);
   --button-color: var(--sds-color-text-default-default);
   &[data-hovered]:not([data-disabled]) {
     --button-background-color: var(
-      --sds-color-background-default-secondary-hover
+      --sds-color-background-neutral-tertiary-hover
     );
   }
 }
 .button-variant-subtle {
   --button-background-color: transparent;
   --button-border-color: transparent;
-  --button-color: var(--sds-color-text-brand-default);
+  --button-color: var(--sds-color-text-default-default);
   &[data-hovered]:not([data-disabled]) {
-    --button-background-color: var(
-      --sds-color-background-default-default-hover
-    );
+    --button-background-color: transparent;
+    --button-border-color: var(--sds-color-border-default-default);
   }
 }
 

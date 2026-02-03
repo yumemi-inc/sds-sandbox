@@ -11,7 +11,15 @@ export type ButtonProps = Omit<ButtonBaseProps, "variant"> & {
   >;
 };
 export const Button = React.forwardRef(function Button(
-  { className, size = "medium", variant = "primary", ...props }: ButtonProps,
+  {
+    className,
+    size = "medium",
+    variant = "primary",
+    iconStart,
+    iconEnd,
+    children,
+    ...props
+  }: ButtonProps,
   ref: React.ForwardedRef<HTMLElement>,
 ) {
   const classNames = clsx(
@@ -23,13 +31,21 @@ export const Button = React.forwardRef(function Button(
 
   const { style, ...sharedProps } = props;
 
+  const content = (
+    <>
+      {iconStart}
+      {children}
+      {iconEnd}
+    </>
+  );
+
   return isAnchorProps(props) ? (
     <RACLink
       {...sharedProps}
       className={classNames}
       ref={ref as React.ForwardedRef<HTMLAnchorElement>}
     >
-      {props.children}
+      {content}
     </RACLink>
   ) : (
     <RACButton
@@ -37,7 +53,7 @@ export const Button = React.forwardRef(function Button(
       className={classNames}
       ref={ref as React.ForwardedRef<HTMLButtonElement>}
     >
-      {props.children}
+      {content}
     </RACButton>
   );
 });
@@ -56,6 +72,9 @@ export const ButtonDanger = React.forwardRef(function Button(
     className,
     size = "medium",
     variant = "danger-primary",
+    iconStart,
+    iconEnd,
+    children,
     ...props
   }: ButtonDangerProps,
   ref: React.ForwardedRef<HTMLElement>,
@@ -69,13 +88,21 @@ export const ButtonDanger = React.forwardRef(function Button(
 
   const { style, ...sharedProps } = props;
 
+  const content = (
+    <>
+      {iconStart}
+      {children}
+      {iconEnd}
+    </>
+  );
+
   return isAnchorProps(props) ? (
     <RACLink
       {...sharedProps}
       className={classNames}
       ref={ref as React.ForwardedRef<HTMLAnchorElement>}
     >
-      {props.children}
+      {content}
     </RACLink>
   ) : (
     <RACButton
@@ -83,7 +110,7 @@ export const ButtonDanger = React.forwardRef(function Button(
       className={classNames}
       ref={ref as React.ForwardedRef<HTMLButtonElement>}
     >
-      {props.children}
+      {content}
     </RACButton>
   );
 });
@@ -97,6 +124,8 @@ type ButtonBaseProps = {
     | "subtle"
     | "danger-primary"
     | "danger-subtle";
+  iconStart?: React.ReactNode;
+  iconEnd?: React.ReactNode;
 } & AnchorOrButtonProps;
 
 function isAnchorProps(

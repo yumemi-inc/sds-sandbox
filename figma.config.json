@@ -2,7 +2,7 @@
   "litmus": {
     "projectId": "d5992e84-26c8-4766-abbc-e5feb10d49bc",
     "storybook": {
-      "staticBuildPath": "https://685cfc17bae0312f00881fa4-utbvktkvgs.chromatic.com/"
+      "staticBuildPath": "dist/storybook"
     },
     "variants": {
       "viewport": {
